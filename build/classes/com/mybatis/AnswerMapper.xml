@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.AnswerDao">
+	<select id="selectAnswers" parameterType="map" resultType="com.po.Answer">
+		select * from answer where question_id=#{question_id}
+	</select>
+	
+	<insert id="addAnswer" parameterType="com.po.Answer">
+		insert into answer(id, value, quanlity, question_id, user_id)
+		values(null, #{value}, null, #{question_id}, #{user_id})
+	</insert>
+	
+	<update id="updateThumb">
+		update answer set thumbup=(select thumbup from answer where id=#{answer_id})+1
+	</update>
+</mapper>

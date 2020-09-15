@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserDao">
+
+
+	<insert id="register" parameterType="com.po.User">
+		INSERT INTO user(id,username,email,password,phone,nationorregion,gender,birthday,level,school,major,motto,introdution,setting) 
+		values(null,#{username},#{email},#{password},#{phone},#{nationorregion},#{gender},#{birthday},#{level},#{school},#{major},#{motto},#{introdution},#{setting})
+	</insert>
+	
+	<select id="login" parameterType="com.po.User" resultType="com.po.User">
+		SELECT * FROM user WHERE email=#{email} AND password=#{password}
+	</select>
+	
+	<select id="selectUserById" parameterType="Integer" resultType="com.po.User">
+		SELECT * FROM user WHERE id=#{id}
+	</select>
+	
+</mapper>

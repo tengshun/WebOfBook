@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.po.ThumbedAnswer">
+
+	<select id="selectThumb" parameterType="com.po.ThumbedAnswer" resultType="com.po.ThumbedAnswer">
+		select * from thumbedanswer where user_id=#{user_id} and answer_id=#{answer_id}
+	</select>
+	
+	<insert id="thumb" parameterType="com.po.ThumbedAnswer">
+		insert into thumbedanswer(user_id, answer_id, thumb) values(#{user_id}, #{answer_id}, 1);
+	</insert>
+	
+</mapper>
